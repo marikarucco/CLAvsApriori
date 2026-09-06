@@ -1,38 +1,35 @@
 # Cellular Learning Automata vs Apriori
 
-Implementazione e confronto sperimentale tra due algoritmi per il *frequent itemset mining*:
+Implementazione e confronto tra due algoritmi per il *frequent itemset mining*:
 
 - **Cellular Learning Automata (CLA)**, basato sul metodo proposto nel paper *"Frequent itemset mining using cellular learning automata"* di Sohrabi e Roshani (2017);
-- **Apriori**, l'algoritmo classico usato come baseline di confronto.
+- **Apriori**, algoritmo usato come baseline di confronto.
 
-Il notebook implementa entrambi gli algoritmi da zero in Python e ne confronta i tempi di esecuzione sul dataset **Mushroom** (UCI Machine Learning Repository).
+Il notebook implementa entrambi gli algoritmi in Python e ne confronta i tempi di esecuzione sul dataset **Mushroom** (UCI Machine Learning Repository).
 
 ## Struttura del notebook
 
 ### Parte 1 — Cellular Learning Automata
-Implementazione fedele ai passaggi descritti nel paper:
+Implementazione:
 
 - `find_1_itemsets`: individua gli itemset frequenti di dimensione 1 (sezione 3.1 del paper).
 - `prune_and_compress_dataset`: elimina gli item non frequenti e comprime le transazioni duplicate (sezione 3.2).
 - `run_cellular_automata` / `update_proximity_list`: costruisce le celle e le rispettive *proximity list* (sezione 3.3).
 - `prune_cells` / `prune_proximity_list` / `collect_itemsets` / `scan_cells`: effettua il pruning delle proximity list e la scansione delle celle per estrarre gli itemset frequenti finali (sezione 3.4).
-- `cla_mining`: funzione che orchestra l'intera pipeline dell'algoritmo CLA.
-
-Le classi di supporto utilizzate sono `Item`, `Transaction`, `Cell` e `Neighbor`.
+- `cla_mining`: funzione che unisce l'intera pipeline dell'algoritmo CLA.
 
 ### Parte 2 — Apriori
-Implementazione classica dell'algoritmo Apriori, usata come termine di paragone:
+Implementazione:
 
 - `find_1_itemsets_apriori`: itemset frequenti di dimensione 1.
-- `generate_candidate`: genera i candidati di lunghezza *k* a partire dai frequenti di lunghezza *k-1* (join per prefisso comune).
-- `verify_antimonotonicity`: verifica che tutti i sottoinsiemi di un candidato siano frequenti (pruning Apriori).
+- `generate_candidate`: genera i candidati di lunghezza *k* a partire dai frequenti di lunghezza *k-1*.
+- `verify_antimonotonicity`: verifica che tutti i sottoinsiemi di un candidato siano frequenti.
 - `count_candidates_support` / `filter_frequent_itemsets`: conteggio del supporto e filtro dei candidati.
-- `apriori_mining`: funzione che orchestra l'intero algoritmo, livello per livello.
+- `apriori_mining`: funzione che unisce l'intera pipeline dell'algoritmo Apriori.
 
 ### Parte 3 — Confronto dei tempi di esecuzione
-- `load_dataset`: carica il dataset Mushroom (`agaricus-lepiota.data`), associando ogni valore al relativo attributo per evitare ambiguità tra lettere ripetute in colonne diverse.
-- `measure_execution_time`: misura il tempo di esecuzione di una funzione di mining tramite `time.perf_counter()`.
-- `run_benchmark`: esegue CLA e Apriori a diversi valori di *minsup* (espresso come frazione del numero di transazioni), confrontando tempi e insiemi di itemset trovati.
+- `measure_execution_time`: misura il tempo di esecuzione di una funzione di ciascun algoritmo.
+- `run_benchmark`: esegue CLA e Apriori a diversi valori di *minsup*, confrontando tempi e insiemi di itemset trovati.
 - `plot_benchmark_results`: genera un grafico dei tempi di esecuzione al variare di *minsup*.
 
 ## Dataset

@@ -45,7 +45,7 @@ Il notebook utilizza il dataset **Mushroom** (`agaricus-lepiota.data`), lo stess
 ## Requisiti
 
 ```
-pandas
+time
 matplotlib
 ```
 

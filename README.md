@@ -49,8 +49,6 @@ pandas
 matplotlib
 ```
 
-Le librerie `time` e `itertools` fanno parte della standard library di Python.
-
 ## Utilizzo
 
 1. Aprire il notebook `CLAvsApriori.ipynb` su Google Colab (o Jupyter).

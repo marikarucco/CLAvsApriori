@@ -163,7 +163,6 @@ coerentemente con l'ambiente Google Colab.
 Il notebook utilizza Python 3 e le seguenti librerie:
 
 ``` text
-Python 3
 matplotlib
 ```
 
@@ -191,21 +190,6 @@ per effettuare il confronto con soglie di supporto differenti.
 È inoltre possibile modificare `max_len` per controllare la dimensione
 massima degli itemset considerati.
 
-## Funzioni principali
-
-  -----------------------------------------------------------------------
-  Algoritmo               Funzione principale     Approccio
-  ----------------------- ----------------------- -----------------------
-  CLA                     `cla_mining()`          Cellular Learning
-                                                  Automata + proximity
-                                                  lists
-
-  Apriori                 `apriori_mining()`      Candidate generation +
-                                                  antimonotonicity
-
-  FP-Growth               `fpgrowth_mining()`     FP-Tree + conditional
-                                                  pattern bases
-  -----------------------------------------------------------------------
 
 ## Obiettivo del confronto
 
@@ -231,16 +215,3 @@ presentato nel paper:
 
 Il notebook cerca di seguire le fasi descritte nell'articolo per
 l'implementazione del metodo CLA.
-
-## Autori
-
-**Progetto universitario / didattico**
-
-------------------------------------------------------------------------
-
-### Nota
-
-Il notebook contiene implementazioni didattiche degli algoritmi e un
-benchmark eseguito in Python. I tempi di esecuzione possono variare in
-funzione dell'ambiente hardware/software utilizzato, della versione di
-Python e delle caratteristiche del dataset.

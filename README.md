@@ -115,8 +115,10 @@ seguenti dataset:
 
 -   **Mushroom**
 -   **Retail**
--   **PUMSB**
+-   **Pumsb**
 -   **Kosarak**
+-   **Chess**
+-   **Connect**
 
 I dataset vengono scaricati automaticamente dal repository FIMI tramite
 `wget`.
@@ -153,6 +155,8 @@ mushroom.dat
 retail.dat
 pumsb.dat
 kosarak.dat
+chess.dat
+connect.dat
 ```
 
 Il notebook si aspetta di trovare i file nella directory `/content`,
@@ -173,7 +177,7 @@ Python) fanno parte della libreria standard.
 
 Il notebook è pensato per essere eseguito in **Google Colab**.
 
-1.  Aprire il notebook `CLAvsApriorivsFP_Growth.ipynb`.
+1.  Aprire il notebook `CLAvsApriorivsFPGrowth.ipynb`.
 2.  Eseguire le celle in ordine.
 3.  I dataset verranno scaricati automaticamente.
 4.  Verranno eseguite le implementazioni CLA, Apriori e FP-Growth.
